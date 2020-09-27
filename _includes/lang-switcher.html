@@ -1,0 +1,5 @@
+{% if page.lang == site.lang-ref %}
+<span class="rlf-lang-switcher"><span class="{{page.lang}}"><span class="{{site.lang-ref}}">{{site.TR[site.lang-ref].switch}}</span>|<span class="{{site.lang-alt}}"><a href="{{thisLangAltUrl}}">{{site.TR[site.lang-alt].switch}}</a></span></span></span>
+{% else %}
+<span class="rlf-lang-switcher"><span class="{{page.lang}}"><span class="{{site.lang-ref}}"><a href="{{thisLangRefUrl}}">{{site.TR[site.lang-ref].switch}}</a></span>|<span class="{{site.lang-alt}}">{{site.TR[site.lang-alt].switch}}</span></span></span>
+{% endif %}

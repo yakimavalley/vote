@@ -1,0 +1,22 @@
+{% assign listCollection = nil %}
+{% if include.list %}
+  {% assign ttlist = include.list %}
+{% else %}
+  {% if blockData %}
+    {% assign listCollection = site.data[blockData] %}
+  {% else %}
+    {% assign ttlist = site[blockCollection] %}
+  {% endif %}
+{% endif %}
+{% unless listCollection %}
+  {% if page.lang == site.lang-alt %}
+    {% assign listCollection = ttlist | where_exp: "post","post.path contains site.TR[site.lang-alt].baseurl" %}
+  {% else %}
+    {% assign listCollection = "" | split: ',' %}
+    {% for post in ttlist %}
+      {% unless post.path contains site.TR[site.lang-alt].baseurl %}
+        {% assign listCollection = listCollection | push:post %}
+      {% endunless %}
+    {% endfor %}
+  {% endif %}
+{% endunless %} 

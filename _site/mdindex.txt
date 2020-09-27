@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Happy Jekylling! | yv.fyi/VOTE</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/zmg/ico/favicon.ico">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- rlf Custom Over Ride Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/custom.css">
+
+</head>
+<body class=" rlf rlf-lang-es rlf-rlf-vote">
+
+ <header role="banner" class="rlf-header">
+  <div class="container rlf-container-header">
+   <a class="rlf-brand" href="/index.html">yv.fyi/VOTE</a>
+    <nav role="navigation" class="rlf-nav">
+  
+<span class="rlf-lang-switcher"><span class="es"><span class="es">Español</span>|<span class="en"><a href="/en/mdindex.txt">English</a></span></span></span>
+
+    </nav>
+  </div>
+ </header>
+ <main role="main" class="site-content rlf-main rlf-mdindex.txt rlf-group">
+  ## You're ready to go!
+
+Start developing your Jekyll website.
+
+ </main>
+ <footer role="contentinfo" class="rlf-footer">
+<!-- bgn footer -->
+  <div class="container-fluid rlf-container-footer">
+    <div class="text-muted small">
+<span class="rlf-brand mr-2 mb-0"><strong>YakimaValley &middot; fyi</strong></span>
+<span class="mr-2">Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+    </div>
+  </div>
+<!-- end footer -->
+
+ </footer>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+
+{% case include.level %}
+  {% when 4 %}
+    <div> &nbsp;&nbsp;[{{include.level}}) {{include.msg}} - [pval:{{forloop.index}}.{{pval}}][boolkey:{{boolkey}} boolval:{{boolval}} printflag:{{printflag}}]</div>
+
+  {% when 3 %}
+    <div>[{{include.level}}) {{include.msg}} - parkey:{{parkey}}][parvals:{{parvals | join: ','}}][postvals:{{postvals | join: ','}}] [boolkey: {{boolkey}} boolval: {{boolval}} printflag: {{printflag}}]</div>
+
+  {% when 2 %}
+<ul>
+<li>{{include.level}}) index: {{forloop.index}}</li>
+<li>post.title: <a href="{{post.url}}">{{post.title}}</a></li>
+<li>printflag: {{printflag}}</li>
+<li>param: {{param[0]}}--{{param[1]}}</li>
+<li>val: {{val}}</li>
+<li>msg: {{include.msg}}</li>
+</ul>
+
+  {% else %}
+<hr>
+<ol>
+<li>{{include.level}}) msg: {{include.msg}}</li>
+<li>blockCollection: {{blockCollection}}</li>
+<li>thisCollection: {{thisCollection}}</li>
+<li>keyCollection: {{keyCollection}}</li>
+<li>---</li>
+<li>sizeof List: {{listCollection | size}}</li>
+<li>---</li>
+<li>cardName: {{cardName}}</li>
+<li>blockParams: {{blockParams}}</li>
+<li>blockKey: {{blockKey}}</li>
+<li>blockVal: {{blockVal}}</li>
+<li>blockBool: {{blockBool}}</li>
+<li>blockSort: {{blockSort}}</li>
+<li>boolkey: {{boolkey}} boolval: {{boolval}}</li>
+<li>printflag: {{printflag}} ::{% if printflag==true %}isTRUE{% else %}notTRUE{% endif %}</li>
+</ol>
+<hr>
+{% endcase %}

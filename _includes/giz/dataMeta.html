@@ -1,0 +1,53 @@
+<!-- bgn dataMeta -->
+{% assign dataName   = include.name %}
+{% if include.list %} {% assign dataObject = include.list %}
+{% else %}            {% assign dataObject = site.data[dataName] %}
+{% endif %}
+{% assign dataMeta       = nil %}
+{% assign dataType       = nil %}
+{% assign dataMetaKey    = nil %}
+{% assign dataCollection = nil %}
+{% assign dataPlist      = nil %}
+{% assign dataCard       = nil %}
+
+{% if dataName and dataObject %}
+  {% if dataObject[dataName] %}
+    {% assign dataMetaKey = dataName %}
+    {% assign dataMeta = dataObject[dataName] %}
+    {% assign dataType = 'hash' %}
+  {% elsif dataObject[0] %}
+    {% if dataObject[0].meta %}
+      {% assign dataMetaKey = 0 %}
+      {% assign dataMeta = dataObject[0] %}
+      {% assign dataType = dataMeta.meta %}
+      {% if dataType != 'hash' %} 
+        {% assign dataType = 'array' %}
+        {% assign dataObject = dataObject | shift %}
+      {% endif %}
+    {% else %}
+      {% assign dataType = 'array' %}
+    {% endif %} 
+  {% endif %}
+
+  {% if dataMeta and dataMeta.card %}
+    {% capture dataCard %}card-{{dataMeta.card}}-{{blockType}}{% endcapture %}
+  {% endif %}
+  {% if dataMeta and dataMeta.collection and site[dataMeta.collection] %}
+    {% assign dataCollection = dataMeta.collection %}
+    {% assign dataPlist = site[dataCollection] %}
+    {% unless dataCard %}
+      {% capture dataCard %}card-{{dataCollection}}-{{blockMethod}}-{{blockType}}{% endcapture %}
+    {% endunless %}
+  {% elsif site[dataName] %}
+    {% assign dataCollection = dataName %}
+    {% assign dataPlist = site[dataName] %}
+    {% unless 'dataCard' %}
+      {% capture dataCard %}card-{{dataName}}-{{blockMethod}}-{{blockType}}{% endcapture %}
+    {% endunless %}
+  {% endif %}
+  {% unless dataCard %}
+    {% assign dataCard = cardName %}
+  {% endunless %}
+
+{% endif %}
+<!-- end dataMeta -->

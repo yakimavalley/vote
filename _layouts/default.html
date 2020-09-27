@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% include _this.html %}
+<html lang="{{page.lang}}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{page.title}} | {{site.name}}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{site.baseurl}}/{{site.zmg.ico}}/favicon.ico">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/theme.css">
+
+    <!-- rlf Custom Over Ride Stylesheet -->
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/custom.css">
+
+</head>
+<body class="{% if page.url == "/" %}homefirstpage{% endif %} rlf rlf-lang-{{page.lang}} rlf-{{site.rlf-temple}}">
+
+ <header role="banner" class="rlf-header">
+{% include z-header.html %}
+ </header>
+ <main role="main" class="site-content rlf-main rlf-{{thisCollection}} rlf-{{typeCollection}}">
+  {{ content }}
+ </main>
+ <footer role="contentinfo" class="rlf-footer">
+{% include z-footer.html %}
+ </footer>
+
+</body>
+</html>

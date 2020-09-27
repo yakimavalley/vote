@@ -1,0 +1,26 @@
+{% assign card = include.card %}
+{% assign grpId = include.id %}
+<!-- card hero-grouping intro tail -->
+{% if card.lnx.ex %}
+  {% assign lnk = card.lnx.ex %}
+{% else %}
+  {% assign lnk = nil %}
+{% endif %}
+
+         <div class="rlf-card rlf-card-{{grpId}} row">
+          <div class="rlf-zmg col-12 col-sm-6 col-lg-4 {% if lnk %}rlf-zoom{% endif %}">
+           {% if lnk %}<a href="{{lnk}}">{% endif %}
+            <img src="{{site.baseurl}}/{{site.zmg[blockCollection]}}/{{card.zmg}}">
+           {% if lnk %}</a>{% endif %}
+          </div>
+          <div class="rlf-txt col-12 col-sm-6 col-lg-8">
+           {% if lnk %}
+            <h2><a href="{{lnk}}">{{card.title}}</a></h2> 
+            <h3 "rlf-subtitle"><a href="{{lnk}}">{{card.subtitle}}</a></h3> 
+           {% else %}
+            <h2>{{card.title}}</h2> 
+            <h3 "rlf-subtitle">{{card.subtitle}}</h3> 
+           {% endif %}
+          </div>
+         </div>
+<!-- end card hero-grouping intro tail  -->

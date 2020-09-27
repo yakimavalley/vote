@@ -1,0 +1,208 @@
+rlf-temple: "rlf-vote"
+lang-ref: es
+lang-alt: en
+name: 'yv.fyi/VOTE'
+description: 'Yakima Valley for your information'
+future: true
+
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # e.g. http://example.com
+twitter_username: rlf
+github_username:  rlf
+
+bool:
+  section:
+    listing: ['site-method']
+
+params:
+  grouping:
+    keys: [tags]
+
+future: true # process item with dates in the future
+zmg:
+  ico: assets/zmg/ico
+  hero: assets/zmg/hero
+  events: assets/zmg/events
+  orgs: assets/zmg/orgs
+  places: assets/zmg/places
+  posts: assets/zmg/posts
+
+basequote: 
+  es: 'https://es.wikipedia.org/wiki/'
+  en: 'https://en.wikipedia.org/wiki/'
+
+include: ["_pages","_en"]
+xpermalink: /info/:slug/ # only affects posts, 
+                        # collection permalinks default 
+                        # to /page.collection/:slug/
+                        # _pages must be set in each page
+
+_posts:
+  es: elInfo
+  en: info
+
+# Collections
+collections:
+  hero:
+    es: registrarse
+    en: register
+  events:
+    output: true
+    es: eventos
+    en: events
+  orgs:
+    order: # does not work, used order field
+      - secretary-of-state.md
+      - yakima-county.md
+      - nuestra-casa.md
+      - neighborhood-health.md
+    output: true
+    es: organizaciones
+    en: organizations
+  places:
+    output: true
+    es: ubicaciones
+    en: locations
+
+TR:
+  en:
+    baseurl: '/en/'
+    index:  home
+    posts:  info
+    hero:   register
+    events: events
+    orgs:   organizations
+    places: locations
+    switch: English
+  es:
+    baseurl: '/'
+    index:  inicio
+    posts:  info
+    hero:   registrarse
+    events: eventos
+    orgs:   organizaciones
+    places: ubicaciones
+    switch: Español
+
+# Defaults
+defaults:
+  # all
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+      lang: es
+      alert-icon: "exclamation-circle"
+  - scope:
+      path: "_en"
+    values:
+      layout: "default"
+      lang: en
+      permalink: /en/
+
+  # all pages
+  - scope:
+      path: "_pages"
+    values:
+      layout: pages
+      lang: es
+      modular: false
+  - scope:
+      path: "_en/pages"
+    values:
+      layout: pages
+      lang: en
+      modular: false
+
+  # all posts
+  - scope:
+      path: "_posts"
+    values:
+      layout: posts
+      lang: es
+      permalink: /info/:slug/ 
+  # en posts
+  - scope:
+      path: "_posts/en"
+    values:
+      layout: posts
+      lang: en
+      permalink: /en/info/:slug/
+
+  # all hero
+  - scope:
+      path: "_hero"
+    values:
+      layout: hero
+      lang: es
+      permalink: /registrarse/:slug/
+  - scope:
+      path: "_hero/en"
+    values:
+      layout: hero
+      lang: en
+      permalink: /en/registrarse/:slug/
+   
+  # all events
+  - scope:
+      path: "_events"
+    values:
+      layout: events
+      lang: es
+      permalink: /eventos/:slug/
+  - scope:
+      path: "_events/en/"
+    values:
+      layout: events
+      lang: en
+      permalink: /en/eventos/:slug/
+
+  # all orgs
+  - scope:
+      path: "_orgs"
+    values:
+      layout: orgs
+      lang: es
+      permalink: /organizaciones/:slug/
+  - scope:
+      path: "_orgs/en/"
+    values:
+      layout: orgs
+      lang: en
+      permalink: /en/organizaciones/:slug/
+
+  # all places
+  - scope:
+      path: "_places"
+    values:
+      layout: places
+      lang: es
+      permalink: /ubicaciones/:slug/
+  - scope:
+      path: "_places/en/"
+    values:
+      layout: places
+      lang: en
+      permalink: /en/ubicaciones/:slug/
+
+# Build settings
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

@@ -1,0 +1,55 @@
+<!-- bgn layout-section -->
+    <section class="rlf-{{blockName}} rlf-call-{{blockCall}} rlf-method-{{blockMethod}}"> 
+     <p>layout section </p>
+{% include _dbg-blocks.html %}
+{% unless blockSidesection and blockSidesection == blockName %}
+  {% unless blockShareable and blockShareable == blockName %}
+
+     <div class="rlf-layout rlf-layout-1col">
+      <i>1col layout</i>
+      <div class="rlf-row">
+       <div class="rlf-col">
+{% include section-{{blockCall}}.html %}
+       </div>
+      </div -->
+     </div>
+    
+  {% else %}
+   
+     <div class="rlf-layout rlf-layout-shareable">
+      <i>bgnShareable layout</i>
+      <div class="rlf-row">        
+       <div class="rlf-col">
+{% include giz/shareable.html %}       
+       </div>
+       <div class="rlf-col">
+{% include section-{{blockCall}}.html %}       
+       </div>
+      </div>
+     </div>
+
+  {% endunless %}
+{% else %}
+
+     <div class="rlf-layout rlf-layout-wsidebar">
+      <i>bgnWithSidebar layout</i>
+      <div class="rlf-row">
+       <div class="rlf-col">
+{% include section-{{blockCall}}.html %}
+       </div>
+       <div class="rlf-col">
+{% if     page.stickyside %}   {% assign blockSticky = page.stickyside %}
+{% elsif  layout.stickyside %} {% assign blockSticky = layout.stickyside %}
+{% else %}                     {% assign blockSticky = site.stickyside %}
+{% endif %}
+        <div class="rlf-container-sidebars {{ blockSticky }} sticky-top-offset">
+{% include blocks.html blockType="sidebar" %}
+        </div>
+       </div>
+      </div>
+     </div>
+
+{% endunless %}
+
+    </section>
+<!-- end layout-section -->

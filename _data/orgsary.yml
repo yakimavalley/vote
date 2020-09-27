@@ -1,0 +1,64 @@
+- collection: orgs
+  meta: array
+- orgs: secretary-of-state
+  title: Washington Secretary of State Elections
+  logo: soswa.png
+  lnk: https://www.sos.wa.gov/elections/
+  address:
+    street: 520 Union Avenue SE
+    city: Olympia
+    state: WA
+    zip: 98501
+  mail:
+    box: 40229
+    city: Olympia
+    state: WA 
+    zip: 98504-0229
+  phone: 360-902-4180
+  email:  elections@sos.wa.gov
+  social:
+    fb: https://www.facebook.com/WaSecretaryOfState
+    tw: https://twitter.com/secstatewa
+    ig: https://www.youtube.com/user/secstatewa
+    yt: https://www.instagram.com/secstatewa
+  
+- orgs: yakima-county
+  title: Yakima County Election Division
+  logo: yakimacounty.png
+  lnk: https://www.yakimacounty.us/170/Elections 
+  address:
+    street: 128 N 2nd Street Room 117
+    city: Yakima
+    state: WA
+    zip: 98901
+  phone: 509-574-1340
+
+- orgs: nuestra-casa
+  title: Nuestra Casa
+  logo: nuestracasa.png
+  lnk: https://nuestracasawa.org/
+  address:
+    street: 906 E. Edison Ave.
+    city: Sunnyside
+    state: WA
+    zip: 98944
+  phone: 509-839-7602
+  email: https://nuestracasawa.org/contact/
+  social:
+    fb: https://www.facebook.com/NuestraCasaSunnyside/
+
+- orgs: neighborhood-health
+  title: Sunnyside Neighborhood Health
+  logo: ynhs.png
+  lnk: https://www.ynhs.org/locations/sunnyside/
+  address:
+    street: 617 Scoon Road
+    city: Sunnyside
+    state: WA
+    zip: 98944
+  phone: 509-837-8200
+  email: https://www.ynhs.org/contact/
+  social:
+    fb: https://www.facebook.com/Yakima-Neighborhood-Health-Services-208961998121/
+    yt: https://www.youtube.com/channel/UCqHN741nXOzEW3XzPTomFBA
+

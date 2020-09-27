@@ -1,0 +1,69 @@
+{% assign strintval = "123" %}
+{% assign str0val    = "0" %}
+{% assign strval    = "123ABC" %}
+{% assign intval    = 123 %}
+
+<div class="rlf-dbg">
+<hr>
+{% assign intcmp    = include:key | plus:0 %}
+{% assign strcmp    = include:key | append:'' %}
+{% assign strintcmp = intcmp    | append:'' %}
+{% if include.key == intcmp %} <h5>{{include.key}}:include.key == intcmp:{{intcmp}}</h5> 
+{% else %}                   <h5>{{include.key}}:include.key XX intcmp:{{intcmp}}</h5>  {% endif %}
+{% if include.key == strcmp %} <h5>{{include.key}}:include.key == strcmp:{{strcmp}}</h5>  
+{% else %}                   <h5>{{include.key}}:include.key XX strcmp:{{strcmp}}</h5>  {% endif %} 
+{% if include.key == strintcmp %} <h5>{{include.key}}:include.key == strintcmp:{{strintcmp}}</h5> 
+{% else %}                      <h5>{{include.key}}:include-key XX strintcmp:{{strintcmp}}</h5>  {% endif %}
+{% if include.key == intcmp or include.key == strintcmp %} <h5>use integer intcmp:{{intcmp}}</h5>
+{% else %}                                                 <h5>use string strcmp:{{strcmp}}</h5> {% endif %}
+
+<hr>
+{% assign intcmp    = strintval | plus:0 %}
+{% assign strcmp    = strintval | append:'' %}
+{% assign strintcmp = intcmp    | append:'' %}
+{% if strintval == intcmp %} <h5>{{strintval}}:strintval == intcmp:{{intcmp}}</h5> 
+{% else %}                   <h5>{{strintval}}:strintval XX intcmp:{{intcmp}}</h5>  {% endif %}
+{% if strintval == strcmp %} <h5>{{strintval}}:strintval == strcmp:{{strcmp}}</h5>  
+{% else %}                   <h5>{{strintval}}:strintval XX strcmp:{{strcmp}}</h5>  {% endif %} 
+{% if strintval == strintcmp %} <h5>{{strintval}}:strintval == strintcmp:{{strintcmp}}</h5> 
+{% else %}                      <h5>{{strintval}}:strintval XX strintcmp:{{strintcmp}}</h5>  {% endif %}
+{% if strintval == intcmp or strintval == strintcmp %} <h5>use integer intcmp:{{intcmp}}</h5>
+{% else %}                                             <h5>use string strcmp:{{strcmp}}</h5> {% endif %}
+<hr>
+{% assign intcmp    = str0val | plus:0 %}
+{% assign strcmp    = str0val | append:'' %}
+{% assign strintcmp = intcmp    | append:'' %}
+{% if str0val == intcmp %} <h5>{{str0val}}:str0val == intcmp:{{intcmp}}</h5> 
+{% else %}                 <h5>{{str0val}}:str0val XX intcmp:{{intcmp}}</h5>  {% endif %}
+{% if str0val == strcmp %} <h5>{{str0val}}:str0val == strcmp:{{strcmp}}</h5>   
+{% else %}                 <h5>{{str0val}}:str0val XX strcmp:{{strcmp}}</h5>  {% endif %} 
+{% if str0val == strintcmp %} <h5>{{str0val}}:str0val == strintcmp:{{strintcmp}}</h5> 
+{% else %}                    <h5>{{str0val}}:str0val XX strintcmp:{{strintcmp}}</h5>  {% endif %}
+{% if str0val == intcmp or str0val == strintcmp %} <h5>use integer intcmp:{{intcmp}}</h5>
+{% else %}                                         <h5>use string strcmp:{{strcmp}}</h5> {% endif %}
+<hr>
+{% assign intcmp    = strval | plus:0 %}
+{% assign strcmp    = strval | append:'' %}
+{% assign strintcmp = intcmp | append:'' %}
+{% if strval == intcmp %} <h5>{{strval}}:strval == intcmp:{{intcmp}}</h5>   
+{% else %}                <h5>{{strval}}:strval XX intcmp:{{intcmp}}</h5>    {% endif %}
+{% if strval == strcmp %} <h5>{{strval}}:strval == strcmp:{{strcmp}}</h5>   
+{% else %}                <h5>{{strval}}:strval XX strcmp:{{strcmp}}</h5>    {% endif %}
+{% if strval == strintcmp %} <h5>{{strval}}:strval == strintcmp:{{strintcmp}}</h5> 
+{% else %}                   <h5>{{strval}}:strval XX strintcmp:{{strintcmp}}</h5>   {% endif %}
+{% if strval == intcmp or strval == strintcmp %} <h5>use integer intcmp:{{intcmp}}</h5>
+{% else %}                                       <h5>use string strcmp:{{strcmp}}</h5> {% endif %}
+<hr>
+{% assign intcmp    = intval | plus:0 %}
+{% assign strcmp    = intval | append:'' %}
+{% assign strintcmp = intcmp    | append:'' %}
+{% if intval == intcmp %} <h5>{{intval}}:intval == intcmp:{{intcmp}}</h5>
+{% else %}                <h5>{{intval}}:intval XX intcmp:{{intcmp}}</h5>    {% endif %}
+{% if intval == strcmp %} <h5>{{intval}}:intval == strcmp:{{strcmp}}</h5>
+{% else %}                <h5>{{intval}}:intval XX strcmp:{{strcmp}}</h5>    {% endif %}
+{% if intval == strintcmp %} <h5>{{intval}}:intval == strintcmp:{{strintcmp}}</h5>
+{% else %}                    <h5>{{intval}}:intval XX strintcmp:{{strintcmp}}</h5>  {% endif %}
+{% if intval == intcmp or intval == strintcmp %} <h5>use integer intcmp:{{intcmp}}</h5>
+{% else %}                                       <h5>use string strcmp:{{strcmp}}</h5> {% endif %}
+<hr>
+</div>

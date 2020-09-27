@@ -1,0 +1,33 @@
+---
+title: "Yakima Valley"
+layout: default
+pagination:
+    enabled: true
+description: "Development Jekyll theme developed by RLF."
+intro:   [hero-grouping]
+section: []
+sidebar: [quotes-item]
+sidesection: hero-action
+
+params:
+  intro:
+    hero-grouping:
+      keys:   [grp,caste]
+      groups: [current] 
+      caste:  [hero,a,b,c,d]
+      
+
+bool:
+  section:
+    posts-listing: [and,or]
+
+titles:
+  section:
+    posts-listing: VOTO de Yakima Valley
+  sidebar:
+    posts-listing: Posto 
+---
+{% include _this.html %}
+  <div class="container-fluid rlf-container-intro">
+{% include blocks.html blockType = 'intro' %}
+  </div>

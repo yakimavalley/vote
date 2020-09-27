@@ -1,0 +1,33 @@
+{% if page.collection %}
+  {% assign thisCollection = page.collection %}
+  {% assign typeCollection = 'item' %}
+  {% assign thisType = 'item' %}
+{% else %}
+  {% assign thisCollection = page.name | remove: '.md' | remove: '.html' %}
+  {% assign typeCollection = 'group' %}
+  {% assign thisType = 'group' %}
+{% endif %}
+
+{% assign thisLabel = site.TR[page.lang][thisCollection]  %}
+{% assign thisLabelRef = site.TR[site.lang-ref][thisCollection] %}
+{% assign thisLabelAlt = site.TR[site.lang-alt][thisCollection] %}
+{% unless thisCollection == 'index' %}
+  {% assign d = site.collections | where:'label',thisCollection | first %}
+  {% if d.output %}
+    {% assign thisModular = false %}
+  {% else %}
+    {% assign thisModular = true %}
+  {% endif %}
+{% endunless %}
+
+{% if page.lang == site.lang-ref %}
+  {% assign thisLangSwitch = site.lang-alt %}
+  {% assign thisLangRefUrl = page.url %}
+  {% assign thisLangAltUrl = site.TR[site.lang-alt].baseurl | append: page.url | replace: '//','/' %}
+{% else %}
+  {% assign thisLangSwitch = site.lang-ref %}
+  {% assign thisLangRefUrl = page.url | replace: site.TR[site.lang-alt].baseurl,'/' %}
+  {% assign thisLangAltUrl = page.url %}
+{% endif %}
+
+{% assign zmgbase = "assets/zmg/" | append: {{thisCollection}} %}

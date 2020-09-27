@@ -1,0 +1,14 @@
+  <div class="container rlf-container-footer">
+    <h3>footer</h3>
+     <ul>
+       {% for col in site.collections %}
+  {% assign d = site.collections | where:'label',col.label | first %}
+  {% assign tturl = site.baseurl 
+     | append: '/'
+     | append: site.TR[site.lang-ref][col.label]
+     | append: '/' %}
+       <li><a href="{{tturl}}">{{col.label}} | {{site.TR[page.lang][col.label]}}</a></li>
+{% endfor %}
+       <li>{% include lang-switcher.html %}</li>
+     </ul>
+  </div>

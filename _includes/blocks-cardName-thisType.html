@@ -1,0 +1,5 @@
+{% if thisType == 'group' %}
+  {% capture cardName %}card-this-excerpt-{{blockType}}{% endcapture %}
+{% else %}
+  {% capture cardName %}card-this-content-{{blockType}}{% endcapture %}
+{% endif %}

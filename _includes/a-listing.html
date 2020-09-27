@@ -1,0 +1,80 @@
+{% include _dbg-blocks.html %}
+
+<!-- bgn listing -->
+{% unless include.list %}
+{% include lang-listCollection.html %}
+{% else %}
+  {% assign listCollection = include.list %}
+{% endunless %}
+
+{% if blockSort %}
+  {% assign listCollection = listCollection | sort: blockSort %}
+{% endif %}
+
+blockParams == nil and (blockKey == nil or blockVal == nil ) r to l
+if blockVal == nil or blockKey == nil and blockParams == nil 
+{% unless blockParams != nil or blockKey != nil and blockVal != nil %} 
+{% include _dbg-listing.html msg = "no blockParams" level = 1 %}
+  {% for post in listCollection %}
+{% include {{cardName}}.html card = post index = forloop.index %}
+     {% include _dbg-listing.html msg = 'no blockParams' level = 3 %}
+  {% endfor %}
+{% else %}
+  {% assign bvals = blockVal | join:',' | split:',' %}
+  {% assign bools = blockBool | join:',' | split:',' %} %}
+<div>{{ bools }}|{{ bools[1] }}{% if bools[1] == nil %}is Nil{% endif %}</div>
+  {% if bools[0] == '0' or bools[0] == nil or bools[0] == 'or' %} 
+    {% assign boolkey = 0 %}
+  {% else %}
+    {% assign boolkey = 1 %}
+  {% endif %}
+  {% if bools[1] == '0' or bools[1] == nil or bools[1] == 'or' %}
+    {% assign boolval = 0 %}
+  {% else %}
+    {% assign boolval = 1 %}
+  {% endif %}
+
+  {% for post in listCollection %}
+    {% assign printflag = boolkey %}
+    {% if blockKey and blockVal  %}
+{% include _dbg-listing.html msg = "blockKey and blockVal" level = 3 %} 
+      {% assign postvals = post[blockKey] %}
+      {% for pval in bvals %}
+<b>-{{pval}}[{{postvals}}]-</b>
+        {% if postvals contains pval %}
+          {% assign printflag = 1 %}
+        {% else %}
+          {% assign printflag = 0 %}
+        {% endif %}
+        {% if boolval != printflag %} {% break %} {% endif %}
+      {% endfor %}
+    {% endif %}
+
+    {% if blockParams and boolkey == printflag %}
+<i>inside blockParams </i>
+{% include _dbg-listing.html msg = "blockParams" level = 3 %}
+      {% for param in blockParams %}
+        {% assign parkey = param[0] %}
+        {% assign parvals = param[1] | join: ',' | split: ',' %}
+        {% assign postvals = post[parkey] %}
+        {% for pval in parvals %}
+          {% if postvals contains pval %}
+            {% assign printflag = 1 %}
+          {% else %}
+            {% assign printflag = 0 %}           
+          {% endif %}
+{% include _dbg-listing.html msg = "pval" level = 4 %}
+          {% if boolval != printflag %} {% break %} {% endif %}
+        {% endfor %}
+{% include _dbg-listing.html msg = "boolkey" level = 3 %}
+        {% if boolkey != printflag %} {% break %} {% endif %}
+      {% endfor %}
+    {% endif %}
+    
+    {% if printflag == 1 %}
+{% include _dbg-listing.html msg = "b4 print" level = 3 %}
+{% include {{cardName}}.html card=post %}
+    {% endif %}
+  {% endfor %}
+{% endunless %}
+<!-- end listing -->

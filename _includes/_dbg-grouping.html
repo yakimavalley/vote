@@ -1,0 +1,18 @@
+<!-- bgn dbg-grouping -->
+<div class="_dbg-grouping">
+{% if include.groups and include.caste and include.keys %}
+<b>GROUPING [include.groups:{{include.groups | join:','}} | caste:{{include.caste | join:','}} | keys:{{include.keys | join:','}}]</b>
+{% endif %}
+</div>
+<ul>
+ <li>grpkey   : {{grpkey}}</li>
+ <li>castekey : {{castekey}}</li>
+ <li>grpvals  : {% if grpvals %}{{grpvals | array_to_sentence_string}}{% endif %}</li>
+ <li>grpval   : {{grpval}}</li>
+ <li>headval  : {{headval}}</li>
+ <li>tailvals : {% if tailvals %}{{tailvals | array_to_sentence_string}}{% endif %}</li>
+ <li>max      : {{max}}</li>
+ <li>maxhead  : {{maxhead}}</li>
+ <li>maxtail  : {{maxtail}}</li>
+</ul>
+<!-- end dbg-grouping -->

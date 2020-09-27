@@ -1,0 +1,1 @@
+{%- assign aryTxt = include.txt | normalize_whitespace | split: ' ' -%}{%- for word in aryTxt -%} <span class="{% cycle 'rlf-red','rlf-white','rlf-blue' %}"> {{word}} </span> {%- endfor -%}

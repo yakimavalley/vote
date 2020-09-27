@@ -1,0 +1,70 @@
+{% include _dbg-blocks.html %}
+
+<!-- bgn gridling -->
+{% if include.cols %}
+  {% assign numofcols = include.cols | plus: 0 %}
+{% elsif blockKey %}
+  {% assign numofcols = blockKey | plus: 0 %} 
+{% elsif blockParams.cols %}
+  {% assign numofcols = blockParams.cols | plus: 0 %}
+{% else %}
+  {% assign numofcols = 2 %} 
+{% endif %}
+
+{% if numofcols < 2 %}
+  {% assign numofcols = 2 %}
+{% elsif numofcols > 7 %}
+  {% assign numofcols = 7 %}
+{% endif %}
+
+{% unless include.list %}
+{% include lang-listCollection.html %}
+{% else %}
+  {% assign listCollection = include.list %}
+{% endunless %}
+
+{% assign bootsize = 12 | divided_by: numofcols %}
+{% assign remainder = listCollection.size | modulo: numofcols %}
+{% if remainder > 0 %}
+  {% assign downsize = 12 | divided_by: remainder %}
+{% else %}
+  {% assign downsize = bootsize %}
+{% endif %}
+
+<ul>
+ <li>numofcols:{{numofcols}}</li>
+ <li>bootsize: {{bootsize}}</li>
+ <li>remainder:{{remainder}}</li>
+ <li>downsize:{{downsize}}</li>
+</ul>
+<ul>
+ <li>0 {{0 | modulo: 2}}</li>
+ <li>1 {{1 | modulo: 2}} {{1 | divided_by: 2}}</li>
+ <li>2 {{2 | modulo: 2}} {{2 | divided_by: 2}}</li>
+ <li>3 {{3 | modulo: 2}} {{3 | divided_by: 2}}</li>
+ <li>4 {{4 | modulo: 2}} {{4 | divided_by: 2}}</li>
+</ul>
+
+
+{% for post in listCollection %}
+  {% assign formod = forloop.index | modulo: numofcols %}
+<h5>index:{{forloop.index}} rindex:{{forloop.rindex}}</h5> 
+  {% if formod == 1 %}
+<hr>
+<div class="rlf-row {% cycle 'rlf-style-a','rlf-style-b' %}">
+  {% endif %}
+  {% if forloop.rindex <= remainder %}
+<h5>bootsize remainder </h5>
+    {% assign bootsize = downsize %}
+  {% endif %}
+
+      <div class="rlf-col rlf-col-{{bootsize}} rlf-style-{{formod}}">
+{% include {{cardName}}.html card=post %} 
+      </div>
+
+  {% if formod == 0 %}
+</div><!-- end row -->
+  {% endif %}
+{% endfor %}
+    </div>
+<!-- end gridling -->

@@ -1,0 +1,64 @@
+hero:
+  collection: hero
+  method: grouping
+  key: [date,'%b']
+
+jan:
+  keys: [grp,caste]
+  caste: [jan,a,b,c]
+  groups: shiver
+
+feb:
+  keys: [grp,caste]
+  caste: [feb,a,b,c]
+  groups: winter
+
+mar:
+  keys: [grp,caste]
+  caste: [mar,a,b,c]
+  groups: spring
+
+apr:
+  keys: [grp,caste]
+  caste: [apr,a,b,c]
+  groups: spring
+  
+may:
+  keys: [grp,caste]
+  caste: [may,a,b,c]
+  groups: spring
+
+jun:
+  keys: [grp,caste]
+  caste: [jun,a,b,c]
+  groups: summer
+
+jul:
+  keys: [grp,caste]
+  caste: [jul,a,b,c]
+  groups: summer
+
+aug:
+  keys: [grp,caste]
+  caste: [aug,a,b,c]
+  groups: summer
+
+sep:
+  keys: [grp,caste]
+  caste: [sep,a,b,c]
+  groups: autumn
+
+oct:
+  keys: [grp,caste]
+  caste: [oct,a,b,c]
+  groups: autumn
+
+nov:
+  keys: [grp,caste]
+  caste: [nov,a,b,c]
+  groups: autumn
+
+dec:
+  keys: [grp,caste]
+  caste: [dec,a,b,c]
+  groups: winter

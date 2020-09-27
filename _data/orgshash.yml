@@ -1,0 +1,18 @@
+0:
+  collection: orgs
+  meta: hash
+
+secretary-of-state:
+  phone: 360-902-4180
+  email:  elections@sos.wa.gov
+  
+yakima-county:
+  phone: 509-574-1340
+
+nuestra-casa:
+  phone: 509-839-7602
+  email: https://nuestracasawa.org/contact/
+
+neighborhood-health:
+  phone: 509-837-8200
+  email: https://www.ynhs.org/contact/

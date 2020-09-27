@@ -1,0 +1,20 @@
+{% assign card = include.card %}
+{% assign grpId = include.id %}
+<!-- card hero-grouping intro -->
+{% if card.lnx.ex %}
+  {% assign lnk = card.lnx.ex %}
+{% else %}
+  {% assign lnk = nil %}
+{% endif %}
+         <div class="rlf-card rlf-card-{{grpId}}">
+          <h3 "rlf-subtitle">{{card.subtitle}}</h3>  
+        {% unless site.hero-bg == 'zmg' %}
+          <div class="rlf-zmg">
+           <a href="{{lnk}}">
+            <img src="{{site.baseurl}}/{{site.zmg[blockCollection]}}/{{card.zmg}}">
+           </a>
+          </div>
+        {% endunless %}   
+          <h2><a href="{{lnk}}">{% include giz/txt-rwb.html txt = card.title %}</a></h2> 
+         </div>
+<!-- end card hero-main grouping -->

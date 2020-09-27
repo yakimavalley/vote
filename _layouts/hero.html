@@ -1,0 +1,14 @@
+---
+# hero layout (hero.html)
+layout: default
+---
+{% include _this.html %}
+<!-- hero layout -->
+  <div>
+{% include lang-switcher.html %}
+  </div>
+  <div class="container rlf-container-sections">
+   <h2>HERO {{ page.title }}</h2>
+{% include blocks.html blockType = 'section' %}
+  </div>
+<!-- end hero layout -->

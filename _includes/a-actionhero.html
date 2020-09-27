@@ -1,0 +1,53 @@
+<!-- bgn actionhero -->
+{% if include.group %}
+  {% assign arygrp = include.keys | join: '-' | split: '-' %}
+{% elsif blockKey %}
+  {% assign arygrp = blockKey | join: '-' | split: '-' %} 
+{% elsif blockParams.group %}
+  {% assign arygrp = blockParams.group | join: '-' | split: '-' %}
+{% endif %}
+{% if arygrp %}
+  {% assign grpval = arygrp | first %}
+{% else %}
+  {% assign grpval = blockCollection %}
+{% endif %}
+
+{% unless grpval %}
+  {% assign grpval   = 'current' %}
+{% endunless %}
+{% assign grpkey   = 'grp' %}
+{% assign castekey = 'caste' %}
+{% assign headval  = 'hero' %}
+{% assign tailvals = 'a,b,c,d,e' | split: ',' %}
+{% assign bmg      = 'bmg' %}
+{% assign maxtail  = 4 %}
+{% assign blockCollection = 'hero' %}
+
+{% include _dbg-grouping.html %}
+{% include lang-listCollection.html %}
+
+{% assign grpList = listCollection 
+          | where_exp: 'p',"p[grpkey] contains grpval" %} 
+<i>grpList:{{grpList.size}}</i>
+{% assign heroPost = grpList 
+           | find: castekey, headval %}
+{% assign tailList = grpList 
+           | where_exp: 'p',"tailvals contains p[castekey]"
+           | sort: castekey %}
+<i>tailList:{{tailList.size}}</i>
+
+         <div class="rlf-hero-container" {% if hero[bmg] %} style="{{site.baseurl}}/{{zmgbase}}/{{hero[bmg]}}"{% endif %}>
+          <h3 class="rlf-subtitle">{{heroPost.subtitle}}</h3>
+       {% if hero.zmg and bmg != 'zmg' %}
+          <div class="rlf-zmg">{{hero.zmg}}</div>
+       {% endif %}
+       {% if tailList.size > 0 %}
+          <div class="rlf-cta-container">
+         {% for cta in tailList limit: maxtail %}
+{% include {{cardName}}.html card=cta %}
+         {% endfor %}
+          </div>
+       {% endif %}
+          <h2 class="rlf-title">{{heroPost.title}}</h2>
+         </div>
+<!-- end actionhero -->

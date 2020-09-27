@@ -1,0 +1,158 @@
+{% assign blockType = include.blockType %}
+<!-- bgn block {{ include.blockType }} {{ blockType }} -->
+{% if     page[blockType] %}   
+  {% assign blocks = page[blockType] %}
+  {% assign blockFrom = 'page' %}
+  {% if page.sidebar and page.sidesection %} {% assign blockSidesection = page.sidesection %}
+  {% endif %}
+  {% if page.shareable %} {% assign blockShareable = page.shareable %}
+  {% endif %}
+{% elsif  layout[blockType] %} 
+  {% assign blocks = layout[blockType] %}
+  {% assign blockFrom = 'layout' %}
+  {% if layout.sidebar and layout.sidesection %} {% assign blockSidesection = layout.sidesection %}
+  {% endif %}
+  {% if layout.shareable %} {% assign blockShareable = layout.shareable %}
+  {% endif %}
+{% else %}                     
+  {% assign blocks = site[blockType] %}
+  {% assign blockFrom = 'site' %}
+  {% if site.sidebar and site.sidesection %} {% assign blockSidesection = site.sidesection %}
+  {% endif %}
+  {% if site.shareable %} {% assign blockShareable = site.shareable %}
+  {% endif %}
+{% endif %}
+
+   <div class="rlf-blocks-{{ blockType }}">
+{% for blockCur in blocks %} 
+   {% assign blockKey = nil %}
+   {% assign blockVal = nil %}
+   {% assign listCollection = nil %}
+   {% assign blockName = blockCur %} 
+   {% assign blockTitle = page.titles[blockType][blockName] %}
+   {% assign blockParams = page.params[blockType][blockName] %}
+   {% assign aryBlock = blockName | split : '-' %}
+{% assign aryLength = aryBlock.size %}
+   {% if aryBlock.size < 2 %}
+     {% assign blockMethod = blockName %}
+     {% assign blockCall = blockName %} 
+     {% assign blockCollection = thisCollection %}
+   {% else %}
+      {% assign blockCollection = aryBlock[0] %}
+      {% assign blockMethod = aryBlock[1] %}
+      {% if aryBlock.size < 3 %}
+        {% assign blockCall = blockName %}
+      {% else %}
+        {% assign blockKey = aryBlock | shift | shift | join: '-' %}
+        {% if page[blockKey] %}
+          {% assign blockVal = page[blockKey] %}
+        {% elsif thisCollection == blockKey %}
+          {% unless typeCollection == 'group' %}
+            {% assign blockVal = page.slug; %}
+          {% endunless %}
+        {% endif %}
+        {% capture blockCall %}{{blockCollection}}-{{blockMethod}}{% endcapture %}
+        {% if blockTitle == nil %}
+           {% assign blockTitle = page.titles[blockType][blockCall] %}
+        {% endif %}
+      {% endif %}
+   {% endif %}
+   {% if blockParams == nil %}
+     {% if layout.params[blockType][blockName] %}
+        {% assign blockParams = layout.params[blockType][blockName] %}
+     {% elsif site.params[blockType][blockName] %}
+        {% assign blockParams = site.params[blockType][blockName] %}
+     {% elsif page.params[blockType][blockCall] %}
+        {% assign blockParams = page.params[blockType][blockCall] %}
+     {% elsif layout.params[blockType][blockCall] %}
+        {% assign blockParams = layout.params[blockType][blockCall] %}
+     {% elsif site.params[blockType][blockCall] %}
+        {% assign blockParams = site.params[blockType][blockCall] %}
+     {% elsif page.params[blockType][blockMethod] %}
+        {% assign blockParams = page.params[blockType][blockMethod] %}
+     {% elsif layout.params[blockType][blockMethod] %}
+        {% assign blockParams = layout.params[blockType][blockMethod] %}
+     {% elsif site.params[blockType][blockMethod] %}
+        {% assign blockParams = site.params[blockType][blockMethod] %}
+     {% endif %}
+   {% endif %}
+   {% if blockParams or blockKey %}
+     {% if page.bool[blockType][blockName] %}
+        {% assign blockBool = page.bool[blockType][blockName] %}
+     {% elsif layout.bool[blockType][blockName] %}
+        {% assign blockBool = layout.bool[blockType][blockName] %}
+     {% elsif site.bool[blockType][blockName] %}
+        {% assign blockBool = site.bool[blockType][blockName] %}
+     {% elsif page.bool[blockType][blockCall] %}
+        {% assign blockBool = page.bool[blockType][blockCall] %}
+     {% elsif layout.bool[blockType][blockCall] %}
+        {% assign blockBool = layout.bool[blockType][blockCall] %}
+     {% elsif site.bool[blockType][blockCall] %}
+        {% assign blockBool = site.bool[blockType][blockCall] %}
+     {% elsif page.bool[blockType][blockMethod] %}
+        {% assign blockBool = page.bool[blockType][blockMethod] %}
+     {% elsif layout.bool[blockType][blockMethod] %}
+        {% assign blockBool = layout.bool[blockType][blockMethod] %}
+     {% elsif site.bool[blockType][blockMethod] %}
+        {% assign blockBool = site.bool[blockType][blockMethod] %}
+     {% else %}
+        {% assign blockBool = site.bool['default'] %}
+     {% endif %}
+   {% endif %}
+   {% if blockTitle == nil %} 
+     {% assign blockTitle = blockCall | replace: '-',' ' | capitalize %}
+   {% endif %}
+   {% capture cardName %}card-{{blockCall}}-{{blockType}}{% endcapture %}
+
+<!-- data -->
+   {% assign blockData = nil %}
+   {% assign cardData = nil %}
+   {% if blockCollection == 'data' %}
+     {% assign blockData = blockCollection %}
+     {% if blockKey %}
+       {% assign ttkey = blockKey | split: '-', | first %}    
+       {% if site.data[ttkey]%}   
+         {% assign cardData = ttkey %}
+         {% assign blockData = cardData %}  
+       {% endif %}
+     {% endif %}
+     {% unless cardData %}
+       {% if blockParams and blockParams.data %}
+         {% assign ttkey = blockParams.data %}
+         {% if site.data[ttkey] %}
+           {% assign cardData = ttkey %}
+           {% assign blockData = cardData %}  
+         {% endif %}
+       {% endif %}
+     {% endunless %}
+     {% unless cardData %}
+       {% if site.data[blockData] %}
+         {% assign cardData = blockData %}
+       {% endif %}
+     {% endunless %}          
+     {% if cardData %}
+       {% capture cardName %}card-{{cardData}}-{{blockMethod}}-{{blockType}}{% endcapture %}
+     {% endif %}
+   {% endif %}
+    
+   {% unless cardData %}
+     {% if blockParams and blockParams.data %}
+       {% assign ttkey = blockParams.data %}
+       {% if site.data[ttkey] %}
+         {% assign cardData = ttkey %}
+       {% endif %}
+     {% endif %}
+     {% unless cardData %}
+       {% if site.data[blockCollection] %}
+         {% assign cardData = blockCollection %}
+       {% endif %}
+     {% endunless %}
+   {% endunless %}
+
+{% include blocks-cardName.html %}
+{% include layout-{{blockType}}.html %}
+
+ {% assign blockType = include.blockType %}
+{% endfor %}
+   </div>
+<!-- end block {{ include.blockType }} {{ blockType }} -->

@@ -1,0 +1,14 @@
+{% assign card = include.card %}
+{% assign grpId = include.id %}
+<!-- card hero-grouping intro -->
+         <div class="rlf-card rlf-card-{{grpId}}">
+          <h2><a href="{{site.baseurl}}/{{site.TR[site.lang-ref][places]}}/">{% include giz/txt-rwb.html txt = card.title %}</a></h2>  
+        {% unless site.hero-bg == 'zmg' %}
+          <div class="rlf-zmg">
+            <img src="{{site.baseurl}}/{{site.zmg[blockCollection]}}/{{hero.zmg}}">
+          </div>
+        {% endunless %}   
+          <h3 "rlf-subtitle">{{card.subtitle}}</h3> 
+         </div>
+
+<!-- end card hero-main grouping -->

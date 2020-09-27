@@ -1,0 +1,171 @@
+{% if blockParams %} {% assign params = blockParams %}
+{% else %}           {% assign params = site.params.grouping %}
+{% endif %}
+
+{% if include.keys %}
+  {% assign arykey = include.keys | join: '-' | split: '-' %}
+{% elsif blockKey %}
+  {% assign arykey = blockKey | join: '-' | split: '-' %} 
+{% elsif params.keys %}
+  {% assign arykey = params.keys | join: '-' | split: '-' %}
+{% endif %}
+{% if arykey %}
+  {% assign grpkey = arykey | first %}
+  {% assign castekey = arykey | shift | first %}
+{% else %}
+  {% assign grpkey = blockCollection %}
+{% endif %}
+
+{% if include.groups %}
+  {% assign grpvals = include.groups | join: ',' | split: ',' %}
+{% elsif params.groups %}
+  {% assign grpvals = params.groups | join: ',' | split: ',' %}
+{% endif %}
+
+{% if castekey %}
+  {% if include.caste %}
+    {% assign castevals = include.caste | join: ',' | split: ',' %}
+  {% elsif params.caste %}
+    {% assign castevals = params.caste | join: ',' | split: ',' %}
+  {% endif %}
+  {% if castevals %}
+    {% assign headval  = castevals | first %}
+    {% assign tailvals = castevals | shift %}
+  {% else %}
+    {% assign headval  = blockCollection %}
+  {% endif %}
+{% endif %}
+
+{% if include.max %}
+  {% assign max = include.max | join: '-' | split: '-' %}
+{% elsif params.max %}
+  {% assign max = params.max | join: '-' | split: '-' %}
+{% endif %}
+{% if max %}
+  {% assign maxhead = max | first | plus: 0 %}
+  {% assign maxtail = max | shift | first | plus: 0 %}
+{% endif %}
+
+{% assign cardapx = '-head,-tail' | split: ',' %}
+{% assign headapx = cardapx[0] %}
+{% assign tailapx = cardapx[1] %}
+
+{% assign listThis = include.list %}
+{% include lang-listCollection.html list=listThis %}
+
+<div class="rlf-grouping rlf-grpkey-{{grpkey}} rlf-castekey-{{castekey}}">
+{% unless castekey %}
+<i>NO castekey</i>
+  {% unless grpvals %}
+    {% assign grpvals = '' | split:',' %}
+    {% for p in listCollection %}
+      {% assign grpvals = p[grpkey] | join:',' | split:',' | concat: grpvals | uniq %}
+    {% endfor %}
+    {% assign grpvals = grpvals | sort %} 
+  {% endunless %}
+  {% if maxhead == nil or maxhead<1 %}
+    {% assign maxgrp = grpvals.size %}
+  {% else %}
+    {% assign maxgrp = maxhead %}
+  {% endif %}
+
+  {% for grpname in grpvals limit: maxgrp %}
+    {% assign ngrp = listCollection | where_exp: 'p',"p[grpkey] contains grpname" %}
+    {% if ngrp %}
+     <div class="rlf-grp rlf-grp-{{forloop.index}} rlf-grp-{{grpname}}">
+      {% if maxtail == nil or maxtail < 1 %}
+        {% assign maxp = ngrp.size %}
+      {% else %}
+        {% assign maxp = maxtail %}
+      {% endif %}
+      {% for post in ngrp limit: maxp %}
+        <div class="rlf-grp-post rlf-grp-post-{{forloop.index}}">
+{% include {{cardName}}.html card=post id=forloop.index%}
+        </div>
+      {% endfor %}
+     </div>
+    {% endif %}
+  {% endfor %}
+{% else %}
+
+  {% assign headList = listCollection 
+     | where_exp: 'p',"p[castekey] contains headval" %}
+  {% assign tailList = listCollection      
+     | where_exp: 'p',"p[castekey] != headval" %}  
+
+  {% unless grpvals %}
+    {% assign grpvals = '' | split:',' %}
+    {% for p in headList %}
+      {% assign grpvals = p[grpkey] | join:',' | split:',' | concat: grpvals | uniq %}
+    {% endfor %}
+    {% assign grpvals = grpvals | sort %} 
+  {% endunless %} 
+
+  {% unless tailvals.size > 0 %}
+    {% assign tailvals = '' | split: ',' %}
+    {% for p in tailList %}
+      {% assign tailvals = p[castekey] | join:',' | split:',' | concat: tailvals | uniq %}
+    {% endfor %} 
+    {% assign tailvals = tailvals | sort %} 
+  {% endunless %}  
+
+  {% if maxhead == nil or maxhead<1 %}
+    {% assign maxgrp = grpvals.size %}
+  {% else %}
+    {% assign maxgrp = maxhead %}
+  {% endif %}
+  {% for grpname in grpvals %}
+    {% if maxgrp < 1 %} {% break %} {% endif %}
+    {% assign grp = headList | where_exp: "p","p[grpkey] contains grpname" %}
+    {% if grp.size > 0 %}
+       {% assign maxgrp = maxgrp | minus: 1 %}
+       <div class="rlf-grp rlf-grp-{{forloop.index}} rlf-grp-{{grpname}} row">
+        {% if maxhead == nil or maxhead < 1 %}
+          {% assign maxh = grp.size %}
+        {% else %}
+          {% assign maxh = maxhead %}
+        {% endif %}
+        <div class="rlf-grp-heads col-md-6">     
+        {% for post in grp limit:maxh%}
+         <div class="rlf-grp-headpost rlf-grp-headpost-{{forloop.index}} rlf-caste-{{headval}}">
+{% include {{cardName}}{{headapx}}.html card=post id=forloop.index %}
+         </div><!-- end-head-item -->
+        {% endfor %}
+        </div><!-- end-group-heads -->
+                   
+        {% assign tgrp = tailList | where_exp: "p","p[grpkey] contains grpname" %}
+        {% if tgrp %}
+        <div class="rlf-grp-tails col-md-6">
+         <div class="rlf-float">
+          {% assign tailPosts = '' | split: ',' %}
+          {% for tval in tailvals %}
+            {% assign ttPosts = tgrp 
+               | where_exp: 'p',"p[castekey] contains tval" %}
+            {% assign tailPosts = tailPosts | concat: ttPosts  | uniq %}
+          {% endfor %}
+          {% if maxtail == nil or maxtail < 1 %}
+            {% assign maxt = tailPosts.size %}
+          {% else %}
+            {% assign maxt = maxtail %}
+          {% endif %}
+          {% for post in tailPosts %}
+              {% if maxt < 1 %} {% break %} {% endif %}
+              {% unless post[castekey] contains headval %}              
+                {% assign maxt = maxt | minus: 1 %}
+                   
+                {% assign classcaste = post[castekey] | join: ' rlf-caste-' %} 
+            <div class="rlf-grp-tailpost rlf-grp-tailpost-{{forloop.index}} rlf-caste-{{classcaste}}">
+{% include {{cardName}}{{tailapx}}.html card=post id=forloop.index %}
+            </div><!-- end-grp-tailpost -->
+             
+              {% endunless %}
+          {% endfor %}
+         </div>
+        </div><!-- end-grp-tails -->     
+        {% endif %}
+       </div><!-- end-grp -->
+     
+    {% endif %}
+  {% endfor %}
+{% endunless %}
+</div><!-- end-grouping -->

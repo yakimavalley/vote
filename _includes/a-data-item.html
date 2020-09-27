@@ -1,0 +1,71 @@
+<!-- bgn a data-item -->
+{% if include.data %} {% assign dataname = include.data %}
+{% else %}            {% assign dataname = cardData %}
+{% endif %}
+{% if include.list %} {% assign datalist = include.list %}
+{% else %}            {% assign datalist = site.data[dataname] %}
+{% endif %}
+
+data-item-orgs-nuestra-casa
+data-item-orgs-3
+
+<h3>a data-item</h3>
+{% include _dbg-blocks.html %}
+
+{% include giz/dataMeta.html name=dataname list=datalist offset=offset limit=limit %}
+{% include _dbg-dataMeta.html %}
+
+{% if dataPlist %}
+  {% include lang-listCollection.html list=dataPlist %}
+{% endif %}
+
+{% assign itemkey = nil %}
+{% if include.key %}
+  {% assign itemkey = include.key %}
+{% elsif blockKey and blockKey.size > blockData.size %} 
+  {% assign itemkey = blockKey | split: '-' | shift | join: '-' %}
+{% elsif blockParams and blockParams.key %}
+  {% assign itemkey = blockParams.key %}
+{% endif %}
+{% assign strkey = itemkey | append:'' %}
+{% assign intkey = itemkey | plus:0 %}
+{% assign strintkey = intkey | append:'' %}
+
+{ include giz/test-strint.html key= itemkey }
+
+{% if itemkey == intkey or itemkey == strintkey %}
+  {% if dataType == 'array' %}
+<br><i>intkey array</i><br>
+    {% assign dataItem = dataObject[intkey] %}
+    {% assign postkey = dataItem[dataCollection] %}
+  {% else %}
+<br><i>intkey hash</i><br>
+    {% assign max = intkey|plus:1 %}
+    {% for d in dataObject limit:max %}
+<b>{{forloop.index0}}, </b>
+      {% if forloop.last %}
+         {% assign dataItem = d[1] %}
+         {% assign postkey = d[0] %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% else %}
+  {% assign postkey = strkey %}
+  {% if dataType == 'array' %}
+<br><i>strkey array</i><br>
+    {% assign dataItem = dataObject | find_exp: 'd','d[dataCollection] == strkey' %}
+  {% else %}
+<br><i>strkey hash</i><br>
+    {% assign dataItem = dataObject[strkey] %}
+  {% endif %}
+{% endif %}
+
+{% if listCollection and postkey %}         
+  {% assign post = listCollection | find_exp: 'p',"p.slug == postkey" %}
+{% endif %}
+
+]]]]]{{dataItem}}<br>[[{{itemkey}}]][[[[[{{dataMetaKey}}]]]
+{% include {{dataCard}}.html card=post data=dataItem meta=dataMeta key=postkey %} 
+
+
+<!-- end a data-item -->

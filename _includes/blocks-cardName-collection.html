@@ -1,0 +1,5 @@
+{% if blockData %}
+  {% capture cardName %}card-{{cardData}}-{{blockType}}{% endcapture %}
+{% else %}
+  {% capture cardName %}card-{{blockCollection}}-{{blockType}}{% endcapture %}
+{% endif %}

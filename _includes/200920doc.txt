@@ -1,0 +1,111 @@
+FIX:
+  layout-intro class="
+        
+  grouping: add cardapx
+    
+  site.params to add defaults for
+    listing
+
+
+
+
+https://voter.votewa.gov/WhereToVote.aspx
+
+https://www.sos.wa.gov/_assets/elections/vrf_print_2020_english.pdf
+https://www.sos.wa.gov/_assets/elections/vrf_print_2020_spanish.pdf
+
+lnx: 
+  ex: 'https://voter.votewa.gov/WhereToVote.aspx'
+  in: [places,page]
+  
+
+in
+
+
+div {
+    display: none;
+}
+    
+a:hover + div {
+    display: block;
+}
+
+
+.zoom {
+  padding: 50px;
+  background-color: green;
+  transition: transform 1s;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+}
+
+
+
+.floating {
+  display: table;
+  float: right;
+  height: 200px;
+  width: 400px;
+  border: 1px solid red;
+}
+.floating p {
+  display: table-cell; 
+  vertical-align: middle; 
+  text-align: center;
+}
+
+
+
+.hero-cta-container h2 {
+    font-size: 2rem;
+    text-align: left;
+    width: 100%;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    line-height: .9;
+}
+
+mundana
+container-hero 
+  padding: 0 5rem
+  background-color: #fc3
+
+rlf-container-intro {
+  padding: 0 5rem
+  background-color: #fc3
+
+<div class="topfirstimage" 
+style="background-image: url( /assets/images/demo1.jpg); height: 200px;    background-size: cover; background-repeat: no-repeat;"></div>
+
+
+.rlf-hero-grouping .rlf-grp-heads .rlf-card h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: .9;
+    margin: 0;
+    padding: 0;
+    line-height: .9;
+}
+
+
+.rlf-red {
+ color: #e11;
+}
+.rlf-white {
+  #fff
+}
+.rlf-blue {
+  color: #36f;
+}

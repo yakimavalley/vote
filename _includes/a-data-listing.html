@@ -1,0 +1,53 @@
+<!-- bgn a data-listing -->
+{% if include.data %} {% assign dataname = include.data %}
+{% else %}            {% assign dataname = cardData %}
+{% endif %}
+{% if include.list %} {% assign datalist = include.list %}
+{% else %}            {% assign datalist = site.data[dataname] %}
+{% endif %}
+{% if include.offset %} {% assign offset = include.offset %}
+{% else %}              {% assign offset = nil %}
+{% endif %}
+{% if include.limit %}  {% assign limit = include.limit %}
+{% else %}              {% assign limit = nil %}
+{% endif %}
+
+<h3>a data-listing</h3>
+{% include _dbg-blocks.html %}
+
+{% include giz/dataMeta.html name=dataname list=datalist offset=offset limit=limit %}
+{% include _dbg-dataMeta.html %}
+{% if dataPlist %}
+  {% include lang-listCollection.html list=dataPlist %}
+{% endif %}
+
+{% if dataType == 'array' %}
+  {% for d in dataObject offset:offset limit:limit %}
+    {% assign post = nil %}
+    {% assign key  = d[dataCollection] %}
+    {% assign data = d %}
+    {% if listCollection %}
+       {% assign post = listCollection | find_exp: 'p',"p.slug == key" %}      
+    {% endif %}
+<h5>meta:{{dataMeta}}, colname:{{dataCollection}}, obj:{{dataType}}, pid:{{key}}, post: {{post.title}}, offset:{{dataOffset}}, limit:{{dataLimit}}</h5>
+<h5>dataname: {{dataName}}</h5>
+{% include {{dataCard}}.html card=post data=data key=key meta=dataMeta %} 
+  {% endfor %}
+{% else %}
+  {% for d in dataObject offset:offset limit:limit %}
+    {% unless d[0] == dataMetaKey %}
+      {% assign post = nil %}
+      {% assign key  = d[0] %}
+      {% assign data = d[1] %}
+      {% if listCollection %}
+        {% assign post = listCollection | find_exp: 'p',"p.slug == key" %}
+<b>[{{post.slug}}]</b>
+      {% endif %}
+<h5>meta:{{dataMeta}}, colname:{{dataCollection}}, obj:{{dataType}}, pid:{{key}}, post: {{post.title}}, offset:{{dataOffset}}, limit:{{dataLimit}}</h5>
+<h5>dataname: {{dataName}}</h5>
+{% include {{dataCard}}.html card=post data=data key=key  meta=dataMeta %}
+    {% endunless %}
+  {% endfor %}
+{% endif %}
+
+<!-- end a data-listing -->

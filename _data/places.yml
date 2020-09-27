@@ -1,0 +1,191 @@
+sunnyside-ynhs:
+  title: "Sunnyside Neighborhood Health - same day voter registration services"
+  zmg: sunnyside-ynhs.jpg
+  thumb: sunnyside-ynhs-thumb.png
+  address:
+    street: 617 Scoon Road
+    city: Sunnyside 
+    state: WA
+    zip: 98944
+  status: open
+  map: "https://www.google.com/maps/place/617+Scoon+Rd,+Sunnyside,+WA+98944/617+Scoon+Rd,+Sunnyside,+WA+98944"
+  es: 
+    open: "Solo día de elecciones, de 8 a.m. a 8 p.m."
+    md: "Boleta de votación y en persona, inscripción el día de las elecciones. Disponible el día de las elecciones de 8 am a 8 pm."
+  en:
+    open: "Only on elections day, 8am to 8pm"
+    md: "Ballot drop box and in-person, election day registration. Available election day 8am-8pm."
+
+sunnyside:
+  title: Sunnyside Drop Box
+  zmg: sunnyside-ballotbox.jpg
+  thumb: sunnyside-thumb.png
+  address:
+    street: 509 S 8th St
+    city: Sunnyside
+    state: WA
+    zip: 98944
+  status: open
+  en:
+    open: 24 hours 7 days a week
+    md: "On the corner of 8th street and Edison, next to the Post Office, accross the street from the City Hall, accessible from the Fire Station's parking lot."
+  es:
+    open: 24 horas 7 días a la semana
+    md: "En la esquina de la calle 8 y Edison, al lado de la oficina de correos, al otro lado de la calle desde el Ayuntamiento, accesible desde el estacionamiento de la estación de bomberos"
+
+grandview:
+  title: Grandview City Hall
+  zmg: grandview-covid.jpg
+  thumb: grandview-thumb.png
+  address:
+    street: 207 W 2nd St
+    city: Grandview
+    state: WA
+    zip: 98930
+  status: closed
+  en:
+    md: Inside the Grandview City Hall. Closed because of COVID Restrictions.
+  es:
+    md: Dentro del ayuntamiento de Grandview. Cerrado por restricciones COVID.
+
+granger: 
+  title: Granger City Hall
+  zmg: granger-cityhall.jpg
+  thumb: granger-thumb.png
+  address:
+    street: 102 Main St
+    city: Granger
+    state: WA
+    zip: 98932
+  status: open
+  en:
+    open: mon-fri 9am-5pm, election day 9am-8pm. 
+    md: Inside Granger City Hall. Open regular business hours Monday-Friday 9am-5pm, until 8pm on election day.
+  es:
+    open: lunes a viernes 9 am-5pm, día de elecciones de 9 a.m. a 8 p.m.
+    md: Dentro del Ayuntamiento de Granger. Horario de atención habitual de lunes a viernes de 9 a.m. a 5 p.m., , día de elecciones hasta las 8 p.m.
+
+mabton:
+  title: Mabton City Hall
+  zmg: mabton-covid.jpg
+  thumb: mabton-thumb.png
+  address:
+    street: 305 N Main St
+    city: Mabton
+    state: WA
+    zip: 98935
+  status: closed
+  md: Inside the Mabton City Hall. Closed because of COVID Restrictions.
+
+zillah:
+  title: Zillah City Hall
+  zmg: zillah-drivethru.jpg
+  thumb: zillah-thumb.png
+  address:
+    street: 503 First Ave 
+    city: Zillah
+    state: WA
+    zip: 98953
+  status: open
+  en: 
+    open: Mon-Fri 8am-5pm, election day 8am-8pm.
+    md: Inside Zillah City Hall. Open regular business hours Monday-Friday 8am-5pm, election day until 8pm.
+  es:
+    open: Lunes a viernes de 8 a.m. a 5 p.m., día de elecciones de 8 a.m. a 8 p.m.
+    md: Dentro del Ayuntamiento de Zillah. Horario de atención habitual de lunes a viernes de 8 a.m. a 5 p.m., día de elecciones hasta las 8 p.m.
+
+toppenish:
+  title: Toppenish Drop Box
+  zmg: toppenish-ballotbox.jpg
+  thumb: toppenish-ballotbox-thumb.png
+  address:
+    street: 401 Fort Rd
+    city: Toppenish
+    state: WA
+    zip: 98948
+  status: open
+  en:
+    open: 24 hours 7 days a week
+    md: In the Yakama Nation Main Agency Offices parking lot.
+  es:
+    open: 24 horas 7 días a la semana
+    md: En el estacionamiento de las Oficinas de la Agencia Principal de la Nación Yakama.
+
+toppenish-city:   
+  title: Toppenish City Hall
+  zmg: toppenish-covid.jpg
+  thumb: toppenish-thumb.png
+  address:
+    street: 21 W 1st Ave
+    city: Toppenish 
+    state: WA
+    zip: 98948
+  status: closed
+  en:
+    md: Inside the Toppenish City Hall. Closed because of COVID Restrictions.
+  es:
+    md: Dentro del ayuntamiento de Toppenish. Cerrado por restricciones COVID.
+
+wapato:
+  title: Wapato City Hall
+  zmg: wapato-covid.jpg
+  thumb: wapato-thumb.png
+  address:
+    street: 205 E 3rd St
+    city: Wapato 
+    state: WA
+    zip: 98951
+  status: closed
+  en:
+    md: Inside the Wapato City Hall. Closed because of COVID Restrictions.
+  es:
+    md: Dentro del ayuntamiento de Wapato. Cerrado por restricciones COVID.
+
+parker:
+  title: Parker Drop Box
+  zmg: parker-ballotbox.jpg
+  thumb: parker-thumb.png
+  address:
+    street: 360 Columbia Road
+    city: Parker 
+    state: WA
+    zip: 98939
+  status: open
+  en:
+    open: 24 hours 7 days a week
+    md: english only 
+  es:
+    open: 24 horas 7 días a la semana
+
+harrah:
+  title: Harrah City Hall
+  zmg: harrah-covid.jpg
+  thumb: harrah-thumb.png
+  address:
+    street: 11 E Pioneer St
+    city: Harrah 
+    state: WA
+    zip: 98933
+  status: closed
+  en:
+    md: Inside the Harrah City Hall. Closed because of COVID Restrictions.
+  es:
+    md: Dentro del ayuntamiento de Harrah. Cerrado por restricciones COVID.
+
+white-swan:
+  title: White Swan Drop Box
+  zmg: whiteswan-ballotbox.jpg
+  thumb: whiteswan-thumb.png
+  address:
+    street: 240 Curtis St
+    city: White Swan
+    state: WA
+    zip: 98952
+  status: open
+  en:
+    open: 24 hours 7 days a week
+  es:
+    open: 24 horas 7 días a la semana
+    md: Spanish only
+
+
