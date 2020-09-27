@@ -100,7 +100,7 @@ a:hover .rlf-blue {
     align-items: center;
 }
 .rlf-hero-grouping .rlf-grp-tails .rlf-card {
-  margin: 4rem 1rem; 
+  margin: 4rem 1rem;
 }
 
 
@@ -129,7 +129,7 @@ a:hover .rlf-blue {
 .rlf-hero-grouping .rlf-grp-tails .rlf-card:hover .rlf-zoom img{
   -ms-transform: scale(1.2); /* IE 9 */
   -webkit-transform: scale(1.2); /* Safari 3-8 */
-  transform: scale(1.2); 
+  transform: scale(1.2);
   box-shadow: 4px 4px 8px #333;
 }
 
@@ -147,7 +147,7 @@ a:hover .rlf-blue {
 .rlf-zoom img:hover {
   -ms-transform: scale(1.5); /* IE 9 */
   -webkit-transform: scale(1.5); /* Safari 3-8 */
-  transform: scale(1.5); 
+  transform: scale(1.5);
 }
 
 a {
@@ -407,7 +407,7 @@ article.rlf-loc:first-letter {
   font-weight: 700;
   color: #000;
   text-transform: lowercase;
-} 
+}
 .hero-container h2 {
   width: 100%;
   text-align: center;
@@ -775,5 +775,15 @@ ol.list-featured li.rlf-blue:before {
   }
 }
 
+@media (max-width: 420px) {
+  .rlf-container-intro {
+    padding: 0;
+  }
+  footer .rlf-brand {
+    font-size: 1rem;
+  }
+  footer .rlf-copyright {
+    font-size: .7rem;
+  }
 
-
+}
