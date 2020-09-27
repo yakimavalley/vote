@@ -5,8 +5,8 @@ name: 'yv.fyi/VOTE'
 description: 'Yakima Valley for your information'
 future: true
 
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # e.g. http://example.com
+baseurl: "/vote" # the subpath of your site, e.g. /blog
+url: "https://yakimavalley.github.io" # e.g. http://example.com
 twitter_username: rlf
 github_username:  rlf
 
