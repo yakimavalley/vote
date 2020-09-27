@@ -23,10 +23,10 @@
 {% if page.lang == site.lang-ref %}
   {% assign thisLangSwitch = site.lang-alt %}
   {% assign thisLangRefUrl = page.url %}
-  {% assign thisLangAltUrl = site.TR[site.lang-alt].baseurl | append: page.url | replace: '//','/' %}
+  {% assign thisLangAltUrl = site.TR[site.lang-alt].baseurl | append: page.url | replace: '//','/' | relative_url %}
 {% else %}
   {% assign thisLangSwitch = site.lang-ref %}
-  {% assign thisLangRefUrl = page.url | replace: site.TR[site.lang-alt].baseurl,'/' %}
+  {% assign thisLangRefUrl = page.url | replace: site.TR[site.lang-alt].baseurl,'/' | relative_url %}
   {% assign thisLangAltUrl = page.url %}
 {% endif %}
 
