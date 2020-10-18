@@ -5,7 +5,7 @@ caste: hero
 subtitle: "tu tienes el poder"
 zmg: hero1.png
 lnx: 
-  ex: "https://voter.votewa.gov/WhereToVote.aspx"
+  ex: "https://olvr.votewa.gov/default.aspx?Org=YV_FYI&language=es"
 ---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
