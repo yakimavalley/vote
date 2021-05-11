@@ -1,10 +1,9 @@
 ---
 title:  "por Correo"
 grp:   current
-caste: b
+caste: c
 hero: by-mail
-zmg: 3.jpg
-lnx:
-  ex: 'https://www.sos.wa.gov/_assets/elections/vrf_print_2020_spanish.pdf'
-subtitle: Descargue el formulario de registro de votantes.
+zmg: 4r.jpg
+plnk: register/index.html 
+subtitle: Para asegurarse de que su solicitud se reciba a tiempo, solicítela en línea o en persona.
 ---
