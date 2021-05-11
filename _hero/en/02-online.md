@@ -3,7 +3,7 @@ title:  "Online"
 grp: [current,hero]
 caste: a
 zmg: 2.jpg
-subtitle: Register online up to 8 days before the election (Oct 26).
+subtitle: www.yakimacounty.us/vote beginning 9am Monday May 17 until 4pm Friday May 21.
 lnx: 
-  ex: "https://olvr.votewa.gov/default.aspx?Org=YV_FYI"
+  ex: "https://www.yakimacounty.us/170/Elections"
 ---
