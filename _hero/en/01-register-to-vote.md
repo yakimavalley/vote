@@ -1,10 +1,10 @@
 ---
-title:  "Register To Vote"
+title:  "Run for Office"
 grp:   current
 caste: hero
-subtitle: "you have the power"
-zmg: hero1.png
+subtitle: "May 17 - May 21"
+zmg: hero2en.jpg
 lnx: 
-  ex: "https://olvr.votewa.gov/default.aspx?Org=YV_FYI"
+  ex: "https://www.yakimacounty.us/170/Elections"
 ---
 
