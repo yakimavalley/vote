@@ -1,10 +1,9 @@
 ---
 title:  "by Mail"
 grp:   current
-caste: b
+caste: c
 hero: by-mail
-zmg: 3.jpg
-lnx:
-  ex: 'https://www.sos.wa.gov/_assets/elections/vrf_print_2020_english.pdf'
-subtitle: Download voter registration form.
+zmg: 4r.jpg
+plnk: register/index.html
+subtitle: To ensure your application is received on time, please file online or in person.
 ---
