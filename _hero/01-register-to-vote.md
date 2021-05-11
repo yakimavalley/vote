@@ -1,5 +1,5 @@
 ---
-title:  "Postularse Para&nbsp;Un Cargo&nbsp;Público"
+title:  "Postularse Para&nbsp;Un Cargo"
 grp:   current
 caste: hero
 subtitle: "17 de mayo a 21&nbsp;de&nbsp;mayo"
