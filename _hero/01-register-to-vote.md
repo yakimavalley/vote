@@ -5,7 +5,7 @@ caste: hero
 subtitle: "17 de mayo a 21&nbsp;de&nbsp;mayo"
 zmg: hero2.jpg
 lnx: 
-  ex: "https://olvr.votewa.gov/default.aspx?Org=YV_FYI&language=es"
+  ex: "https://www.yakimacounty.us/1470/Electoral-Espaol"
 ---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
