@@ -1,9 +1,9 @@
 ---
-title:  "Registrarse Para Votar"
+title:  "Postularse Para&nbsp;Un Cargo&nbsp;Público"
 grp:   current
 caste: hero
-subtitle: "tu tienes el poder"
-zmg: hero1.png
+subtitle: "17 de mayo a 21&nbsp;de&nbsp;mayo"
+zmg: hero2.png
 lnx: 
   ex: "https://olvr.votewa.gov/default.aspx?Org=YV_FYI&language=es"
 ---
