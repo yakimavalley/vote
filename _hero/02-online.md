@@ -1,9 +1,9 @@
 ---
-title:  "enLINEA"
+title:  "en&nbsp;LINEA"
 grp: [current,hero]
 caste: a
-zmg: 2.jpg
-subtitle: Regístrese en línea hasta 8 días antes de las elecciones (26 de octubre).
+zmg: 2r.jpg
+subtitle: www.yakimacounty.us/vote a partir del lunes 17 de mayo a partir de las 9am hasta el viernes 21 de mayo a las 4pm.
 lnx: 
-  ex: "https://olvr.votewa.gov/default.aspx?Org=YV_FYI&language=es"
+  ex: "https://www.yakimacounty.us/1470/Electoral-Espaol"
 ---
