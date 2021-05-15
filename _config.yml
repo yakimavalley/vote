@@ -74,6 +74,7 @@ TR:
     orgs:   organizations
     places: locations
     switch: English
+    readmore: 'Read More'
   es:
     baseurl: '/'
     index:  inicio
@@ -83,6 +84,7 @@ TR:
     orgs:   organizaciones
     places: ubicaciones
     switch: Español
+    readmore: 'Lee Más'
 
 # Defaults
 defaults:
