@@ -1,0 +1,15 @@
+---
+# posts layout (posts.html)
+layout: default
+intro: [posts]
+section: [this-content]
+---
+{% include _this.html %}
+<!-- posts layout -->
+  <div class="container-fluid rlf-container-intro">
+{% include blocks.html blockType = 'intro' %}
+  </div>
+  <div class="container rlf-container-sections">
+{% include blocks.html blockType = 'section' %}
+  </div>
+<!-- end posts layout -->
