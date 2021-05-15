@@ -1,0 +1,28 @@
+{% assign pgIn = include.pg %}
+{% assign lnktarget = pgIn.lnx.target %}
+{% assign lnklocal = nil %}
+{% assign znklocal = nil %}
+{% if pgIn.lnx.hide %}
+  {% assign lnk = nil %}
+{% elsif pgIn.lnx.ex %}
+  {% assign lnk = pgIn.lnx.ex %}
+  {% unless lnktarget == '_self' %}
+    {% assign lnktarget = '_blank' %}
+  {% endunless %}
+{% else %}
+  {% assign lnk = site.baseurl | append: pgIn.url %}
+  {% assign lnklocal = lnk %}
+  {% unless lnktarget == '_blank' %}
+    {% assign lnktarget = nil %}
+  {% endunless %}
+{% endif %}
+{% if pgIn.znx.ex %}
+  {% assign znk = pgIn.znx.ex %}
+{% elsif lnk %}
+  {% assign znk = lnk %}
+  {% if lnklocal %}
+    {% assign znklocal = lnk %}
+  {% endif %}
+{% else %}
+  {% assign znk = nil %}
+{% endif %}
