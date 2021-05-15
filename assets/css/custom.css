@@ -33,6 +33,16 @@ nav.rlf-nav {
   padding: 0 2rem 0 3rem;
   background-color: #fc3;
 }
+.rlf-posts .rlf-container-intro {
+    background-color: #fff;
+}
+.rlf-posts .rlf-this-content {
+    margin-bottom: 3rem;
+}
+.rlf-container-section {
+  padding: 0 2rem 0 3rem;
+  background-color: #fff;
+}
 a .rlf-red {
  color: #e11;
 }
@@ -100,7 +110,7 @@ a:hover .rlf-blue {
     align-items: center;
 }
 .rlf-hero-grouping .rlf-grp-tails .rlf-card {
-  margin: 4rem 1rem;
+  margin: 4rem 1rem; 
 }
 
 
@@ -129,7 +139,7 @@ a:hover .rlf-blue {
 .rlf-hero-grouping .rlf-grp-tails .rlf-card:hover .rlf-zoom img{
   -ms-transform: scale(1.2); /* IE 9 */
   -webkit-transform: scale(1.2); /* Safari 3-8 */
-  transform: scale(1.2);
+  transform: scale(1.2); 
   box-shadow: 4px 4px 8px #333;
 }
 
@@ -147,7 +157,7 @@ a:hover .rlf-blue {
 .rlf-zoom img:hover {
   -ms-transform: scale(1.5); /* IE 9 */
   -webkit-transform: scale(1.5); /* Safari 3-8 */
-  transform: scale(1.5);
+  transform: scale(1.5); 
 }
 
 a {
@@ -246,7 +256,14 @@ footer .rlf-container-footer {
     border: 1px #966 solid;
 }
 
-
+.rlf-feat div p {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+.rlf-feat div ol {
+    font-size: 1.25rem;
+    margin-left: 1rem;
+}
 
 .rlf-mnu-long {
   display: none;
@@ -407,7 +424,7 @@ article.rlf-loc:first-letter {
   font-weight: 700;
   color: #000;
   text-transform: lowercase;
-}
+} 
 .hero-container h2 {
   width: 100%;
   text-align: center;
@@ -547,6 +564,10 @@ article.rlf-loc:first-letter {
 }
 
 
+section.rlf-call-featured, section.rlf-call-featured-tagged {
+  margin-top: 3rem;
+}
+
 .rlf-quote-hidden {
   display: none;
 }
@@ -562,6 +583,11 @@ article.rlf-loc:first-letter {
 .rlf-feat h1 {
   color: #eee;
 }
+.rlf-feat .rlf-zmg {
+  margin-left: 0;
+}
+
+
 
 .rlf-sidebar-events .rlf-event-card {
   display: flex;
@@ -759,6 +785,13 @@ ol.list-featured li.rlf-blue:before {
   .rlf-hero-grouping .rlf-grp-tails .rlf-card h3 {
     font-size: 1.25rem;
   }
+  
+  .rlf-feat .rlf-zmg {
+    margin-left: -40px;
+  }
+  .rlf-feat div p {
+    font-size: 1rem;
+  }
 }
 @media (max-width: 576px) {
   .rlf-hero-grouping .rlf-grp-heads .rlf-card h2 {
@@ -775,15 +808,5 @@ ol.list-featured li.rlf-blue:before {
   }
 }
 
-@media (max-width: 420px) {
-  .rlf-container-intro {
-    padding: 0;
-  }
-  footer .rlf-brand {
-    font-size: 1rem;
-  }
-  footer .rlf-copyright {
-    font-size: .7rem;
-  }
 
-}
+
