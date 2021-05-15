@@ -1,6 +1,6 @@
 ---
 title: "Deadline for Submitting Candidate Statements"
-bmg: voterguide-square.jpg
+bmg: voterguide.jpg
 categories: [votación]
 tags: [featured, runlocal]
 orgs: [yakima-county]
