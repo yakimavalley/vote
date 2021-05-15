@@ -1,6 +1,6 @@
 ---
 title: "Sunnyside Voting Districts"
-zmg: sunnyside-districts.png
+zmg: sunnysidedistricts.png
 categories: [votación]
 tags: [featured, runlocal]
 orgs: [yakima-county]
