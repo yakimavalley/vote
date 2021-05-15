@@ -1,6 +1,6 @@
 ---
 title: "Los Derechos Electorales de Sunnyside"
-zmg: sunnyside-districts.png
+zmg: sunnysidedistricts.png
 categories: [votación]
 tags: [featured, runlocal]
 orgs: [secretary-of-state, yakima-county]
