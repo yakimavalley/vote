@@ -1,6 +1,6 @@
 ---
 title: "Plazo para someter info para la guía del votante"
-bmg: voterguide-square.jpg
+bmg: voterguide.jpg
 categories: [votación]
 tags: [featured, runlocal]
 orgs: [yakima-county]
