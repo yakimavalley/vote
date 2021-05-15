@@ -5,7 +5,7 @@ pagination:
     enabled: true
 description: "Development Jekyll theme developed by RLF."
 intro:   [hero-grouping]
-section: []
+section: [featured-tagged-runlocal]
 sidebar: [quotes-item]
 sidesection: hero-action
 
@@ -30,4 +30,7 @@ titles:
 {% include _this.html %}
   <div class="container-fluid rlf-container-intro">
 {% include blocks.html blockType = 'intro' %}
+  </div>
+  <div class="container-fluid rlf-container-section">
+{% include blocks.html blockType = 'section' %}
   </div>
