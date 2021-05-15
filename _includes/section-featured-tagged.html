@@ -1,0 +1,45 @@
+<!-- Featured - add featured tag to the post you want to highlight here - tags: [featured] -->
+{% assign indx = 0 %}
+{% include lang-listCollection.html list=site.posts %}
+{% for post in listCollection %} 
+{% assign bool = nil %}
+{% if post.tags contains "featured" %}
+  {% if blockKey %}
+    {% if post.tags contains blockKey %}
+      {% assign bool = 1 %}
+    {% endif %}
+  {% else%}
+    {% assign bool = 1 %}
+  {% endif %}
+{% endif %}
+{% if bool %}
+<div class="jumbotron jumbotron-fluid jumbotron-home pt-0 pb-0 mt-3 mb-2rem position-relative rlf-feat rlf-feat-{% cycle 'red','blue' %}">
+{% assign indx = indx | plus: 1 %}
+{% include giz/feat-lnk.html pg=post %}
+
+    <div class="pl-4 pr-0 h-100 tofront">
+        <div class="row justify-content-between">
+            <div class="col-md-6 pt-6 pb-6 pr-lg-4 align-self-center">
+                <h1 class="mb-3">{{post.title}} </h1>
+{{ post.content }}
+{% if lnk %}
+<a href="{{lnk}}" {% if lnktarget %}rel="noopener noreferrer" target="{{lnktarget}}"{% endif %} class="btn btn-dark">{{site.TR[page.lang].readmore}}</a>
+{% endif %}
+            </div>
+            <div class="col-md-6 {% unless post.zmg %}d-none {% endunless %}d-md-block pr-0" style="background-size:cover;background-image:url({{site.baseurl}}/{{site.zmg.posts}}/{{post.bmg}});">	
+             <div>
+{% if post.zmg %}
+              <div class="rlf-zmg">
+{% if znk %}<a href="{{znk}}" {% if lnktarget %}rel="noopener noreferrer" target="{{lnktarget}}"{% endif %}>{% endif %}
+                <img src="{{site.baseurl}}/{{site.zmg.posts}}/{{post.zmg}}">
+{% if znk %}</a>{% endif %}
+              </div>
+{% endif %}
+             </div>
+            </div>
+        </div>
+    </div>
+</div> 
+{% endif %}
+{% endfor %}
+<!-- end Featured -->

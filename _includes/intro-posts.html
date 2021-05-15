@@ -1,0 +1,26 @@
+{% if page.zmg %}{% assign pgzmg = page.zmg %}
+{% elsif page.bmg %}{% assign pgzmg = page.bmg %}
+{% else %}{% assign pgzmg = nil %}
+{% endif %}
+{% include giz/feat-lnk.html pg=page %}
+{% if lnklocal %}{% assign lnk = nil %}{% endif %}
+{% if znklocal %}{% assign znk = nil %}{% endif %}
+<div class="container">
+  <div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+    <div class="h-100 tofront">
+      <div class="row {% if pgzmg %} justify-content-between {% else %} justify-content-center {% endif %}">
+        <div class="{% if pgzmg %} col-md-6 {% else %} col-md-8 {% endif %} pr-0 pr-md-4 pt-4 pb-4 align-self-center">
+          <h1 class="display-4 mb-4 article-headline">{{ page.title }}</h1>
+{% if lnk %}<a href="{{lnk}}" {% if lnktarget %}rel="noopener noreferrer" target="{{lnktarget}}"{% endif %} class="btn btn-dark">{{site.TR[page.lang].readmore}}</a>{% endif %}
+        </div>
+        {% if pgzmg %}
+        <div class="col-md-6 pr-0 align-self-center">
+{% if znk %}<a href="{{znk}}" {% if lnktarget %}rel="noopener noreferrer" target="{{lnktarget}}"{% endif %}>{% endif %}
+          <img class="rounded" src="{% if pgzmg contains "://" %}{{ pgzmg }}{% else %}{{site.baseurl}}/{{site.zmg.posts}}/{{pgzmg}}{% endif %}" alt="{{ page.title }}">
+{% if znk %}</a>{% endif %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
