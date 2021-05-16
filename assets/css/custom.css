@@ -794,6 +794,9 @@ ol.list-featured li.rlf-blue:before {
   }
 }
 @media (max-width: 576px) {
+  .rlf-container-intro {
+    padding: 0;
+  }
   .rlf-hero-grouping .rlf-grp-heads .rlf-card h2 {
     font-size: 3rem;
   }
