@@ -26,7 +26,7 @@
 <a href="{{lnk}}" {% if lnktarget %}rel="noopener noreferrer" target="{{lnktarget}}"{% endif %} class="btn btn-dark">{{site.TR[page.lang].readmore}}</a>
 {% endif %}
             </div>
-            <div class="col-md-6 {% unless post.zmg %}d-none {% endunless %}d-md-block pr-0" style="background-size:cover;background-image:url({{site.baseurl}}/{{site.zmg.posts}}/{{post.bmg}});">	
+            <div class="col-md-6 {% unless post.zmg %}d-none {% endunless %}d-md-block pr-0" {% if post.bmg %}style="background-size:cover;background-image:url({{site.baseurl}}/{{site.zmg.posts}}/{{post.bmg}});{% endif %}">	
              <div>
 {% if post.zmg %}
               <div class="rlf-zmg">
