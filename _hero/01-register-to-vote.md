@@ -2,7 +2,7 @@
 title:  "Postularse Para&nbsp;Un Cargo"
 grp:   current
 caste: hero
-subtitle: "17 de mayo a 21&nbsp;de&nbsp;mayo"
+subtitle: "¡AHORA! 17-21&nbsp;de&nbsp;mayo"
 zmg: hero2.jpg
 lnx: 
   ex: "https://www.yakimacounty.us/1470/Electoral-Espaol"
